@@ -10,5 +10,12 @@
   <%= @product.price %>
 </p>
 
+<% @product.properties.each do |key, value| %>
+  <p>
+    <strong><%= key.to_s.capitalize %>:</strong>
+    <%= value.to_s.capitalize %>
+  </p>
+<% end %>
+
 <%= link_to 'Edit', edit_product_path(@product) %> |
 <%= link_to 'Back', products_path %>

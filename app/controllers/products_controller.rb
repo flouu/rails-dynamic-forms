@@ -14,7 +14,7 @@ class ProductsController < ApplicationController
 
   # GET /products/new
   def new
-    @product = Product.new
+    @product = Product.new(product_type_id: params[:product_type_id])
   end
 
   # GET /products/1/edit
@@ -69,6 +69,6 @@ class ProductsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
-      params.require(:product).permit(:name, :price)
+      params.require(:product).permit!
     end
 end
